@@ -5,6 +5,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sharada Medical Stores | Choutuppal</title>
+  <link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#08783e">
 <meta name="description" content="Sharada Medical Stores, Choutuppal. Medicines, healthcare products and visiting consultancy.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -216,3 +218,12 @@ section{padding:48px 6%}
 
 </body>
 </html>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js")
+      .then(() => console.log("PWA Ready"))
+      .catch(error => console.log(error));
+  });
+}
+</script>
