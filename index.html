@@ -1,183 +1,218 @@
 
-import React from "react";
-
-const PHONE = "8328020387";
-const WHATSAPP = "918328020387";
-
-const services = [
-  ["💊", "Prescription Medicines", "మందులు"],
-  ["🩺", "Health & Wellness", "ఆరోగ్య ఉత్పత్తులు"],
-  ["🩹", "First Aid Products", "ప్రథమ చికిత్స"],
-  ["🍼", "Baby Care Products", "బేబీ కేర్"],
-  ["🧴", "Personal Care", "పర్సనల్ కేర్"],
-  ["🌿", "OTC Products", "సాధారణ ఆరోగ్య ఉత్పత్తులు"]
-];
-
-const styles = `
-*{box-sizing:border-box}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sharada Medical Stores | Choutuppal</title>
+<meta name="description" content="Sharada Medical Stores, Choutuppal. Medicines, healthcare products and visiting consultancy.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,sans-serif;color:#24352c;background:#f7fbf8}
-a{text-decoration:none}
-header{background:white;padding:15px 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px;box-shadow:0 2px 12px #0000000c;position:sticky;top:0;z-index:10}
-.brand{font-size:23px;font-weight:800;color:#087c48}
-.brand small{display:block;font-size:11px;color:#687c70;letter-spacing:2px}
-nav{display:flex;gap:20px;flex-wrap:wrap}
-nav a{color:#344b3d;font-weight:600;font-size:14px}
-.hero{padding:75px 7%;background:linear-gradient(120deg,#087c48,#13a66a);color:white}
-.hero h1{font-size:clamp(32px,5vw,52px);margin:0 0 15px}
-.hero p{font-size:18px;line-height:1.7;max-width:650px}
-.btn{display:inline-block;padding:14px 22px;border-radius:9px;font-weight:bold;margin:10px 8px 0 0}
-.white{background:white;color:#087c48}
-.whatsapp{background:#19a85a;color:white}
-.call{background:#087c48;color:white}
-section{padding:55px 7%}
-.heading{text-align:center;color:#087c48;font-size:30px;margin-bottom:12px}
-.sub{text-align:center;color:#687c70;margin-bottom:30px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
-.card{background:white;padding:25px;border-radius:14px;box-shadow:0 4px 20px #00000009;text-align:center}
-.card .emoji{font-size:36px}
-.card h3{color:#087c48}
-.about{background:#eaf6ee}
-.contact{background:#087c48;color:white;text-align:center}
-.contact .heading{color:white}
-.info{background:white;color:#24352c;padding:22px;border-radius:12px;margin:12px auto;max-width:600px}
-footer{background:#123c2b;color:white;padding:28px;text-align:center}
-footer p{font-size:13px}
-@media(max-width:600px){
-header{justify-content:center}
-nav{justify-content:center;gap:13px}
-.hero{padding:55px 6%}
-section{padding:40px 6%}
+body{font-family:Arial,sans-serif;color:#23352c;background:#f6faf7;line-height:1.6}
+:root{--green:#08783e;--dark:#064d2c;--light:#e8f6ed;--white:#fff}
+a{text-decoration:none;color:inherit}
+header{background:white;padding:15px 6%;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;box-shadow:0 3px 15px #0000000c;position:sticky;top:0;z-index:10}
+.logo{font-size:21px;font-weight:900;color:var(--dark)}
+.logo span{display:block;font-size:11px;letter-spacing:3px;color:#72927d}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{font-size:13px;font-weight:bold;color:#345342}
+nav a:hover{color:var(--green)}
+.hero{padding:75px 7%;background:linear-gradient(120deg,#064d2c,#0b9450);color:white;display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:center}
+.hero h1{font-size:clamp(34px,5vw,58px);line-height:1.12;margin:15px 0}
+.hero p{font-size:17px;color:#e1f5e8;max-width:550px}
+.tag{display:inline-block;background:#ffffff20;border:1px solid #ffffff50;padding:7px 14px;border-radius:30px;font-size:12px;letter-spacing:1px}
+.hero-art{font-size:110px;text-align:center;background:#ffffff15;border:1px solid #ffffff30;border-radius:30px;padding:30px}
+.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.btn{display:inline-block;padding:13px 22px;border-radius:9px;font-weight:bold;font-size:14px}
+.btn.white{background:white;color:var(--dark)}
+.btn.outline{border:1px solid white;color:white}
+.btn.green{background:var(--green);color:white}
+section{padding:65px 7%}
+.section-head{text-align:center;margin-bottom:35px}
+.section-head h2{font-size:32px;color:var(--dark)}
+.section-head p{color:#6c8174;margin-top:8px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:white;padding:27px;border-radius:17px;box-shadow:0 5px 22px #164c2810;border:1px solid #e6efe8}
+.card .emoji{font-size:35px}
+.card h3{color:var(--dark);margin:12px 0 7px}
+.card p{color:#687b6e;font-size:14px}
+.announcement{background:linear-gradient(120deg,#fff6d9,#fff);border:1px solid #f2df9b;border-radius:20px;padding:32px;text-align:center}
+.announcement h2{font-size:32px;color:#855500}
+.announcement h3{font-size:23px;margin:8px 0;color:#493600}
+.announcement p{color:#746344}
+.doctor{background:linear-gradient(120deg,#e7f3ff,#fff);border:1px solid #cbdff3;border-radius:20px;padding:35px;text-align:center}
+.doctor .icon{font-size:50px}
+.doctor h2{font-size:29px;color:#174a83;margin:10px 0}
+.doctor .qualification{font-weight:bold;color:#365e87}
+.doctor .days{font-size:22px;color:#174a83;font-weight:900;margin:15px 0}
+.pill{display:inline-block;padding:7px 16px;background:#d5e9ff;color:#174a83;border-radius:30px;font-size:12px;font-weight:bold;letter-spacing:1px}
+.contact{background:#073f28;color:white}
+.contact .section-head h2{color:white}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.contact-box{background:#ffffff12;padding:25px;border:1px solid #ffffff25;border-radius:15px}
+.contact-box h3{margin-bottom:12px}
+.contact-box p{color:#d6eee0;margin:8px 0}
+.contact-box a{color:white;font-weight:bold;text-decoration:underline}
+footer{text-align:center;background:#032d1b;color:#cce3d4;padding:23px;font-size:13px}
+@media(max-width:750px){
+header{justify-content:center;text-align:center}
+nav{justify-content:center}
+.hero{grid-template-columns:1fr;text-align:center;padding:55px 6%}
+.hero p{margin:auto}
+.buttons{justify-content:center}
+.hero-art{font-size:75px}
+.cards{grid-template-columns:1fr}
+.contact-grid{grid-template-columns:1fr}
+section{padding:48px 6%}
 }
-`;
+</style>
+</head>
+<body>
 
-export default function App() {
-  const mapUrl =
-    "https://www.google.com/maps/search/?api=1&query=Sharada+Medical+Stores+Choutuppal";
+<header>
+  <a href="#" class="logo">SHARADA MEDICAL STORES
+    <span>CARE • HEALTH • TRUST</span>
+  </a>
+  <nav>
+    <a href="#home">HOME</a>
+    <a href="#about">ABOUT</a>
+    <a href="#services">SERVICES</a>
+    <a href="#consultant">CONSULTANT</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+</header>
 
-  const whatsappUrl =
-    "https://wa.me/" + WHATSAPP +
-    "?text=" + encodeURIComponent(
-      "Hello Sharada Medical Stores, I would like to enquire about medicine availability."
-    );
+<div class="hero" id="home">
+  <div>
+    <span class="tag">YOUR HEALTH IS OUR PRIORITY</span>
+    <h1>Your Trusted<br>Medical Store</h1>
+    <p>Quality medicines and healthcare essentials with friendly service. We are here to support your family's health.</p>
+    <div class="buttons">
+      <a class="btn white" href="https://wa.me/918328020387?text=Hello%20Sharada%20Medical%20Stores%2C%20I%20have%20an%20enquiry." target="_blank">WhatsApp Enquiry</a>
+      <a class="btn outline" href="tel:8328020387">Call Now</a>
+    </div>
+  </div>
+  <div class="hero-art">⚕️</div>
+</div>
 
-  return (
-    <>
-      <style>{styles}</style>
+<section id="about">
+  <div class="section-head">
+    <h2>Welcome to Sharada Medical Stores</h2>
+    <p>Your neighbourhood healthcare partner in Choutuppal.</p>
+  </div>
+  <div style="max-width:800px;margin:auto;text-align:center;color:#63766a">
+    We are committed to helping customers access medicines and everyday healthcare essentials. Contact our team for product enquiries and assistance.
+    <div class="buttons" style="justify-content:center">
+      <a class="btn green" href="https://wa.me/918328020387?text=Hello%2C%20I%20have%20an%20enquiry%20about%20Sharada%20Medical%20Stores." target="_blank">Ask Us on WhatsApp</a>
+    </div>
+  </div>
+</section>
 
-      <header>
-        <div className="brand">
-          SHARADA MEDICAL STORES
-          <small>YOUR HEALTH, OUR PRIORITY</small>
-        </div>
+<section id="services" style="background:#edf6ef">
+  <div class="section-head">
+    <h2>Our Products & Services</h2>
+    <p>Healthcare essentials for your everyday needs.</p>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="emoji">💊</div>
+      <h3>Medicines</h3>
+      <p>Prescription medicines and general medicine enquiries.</p>
+      <a class="btn green" href="https://wa.me/918328020387?text=I%20have%20a%20medicine%20enquiry." target="_blank">Enquire Now →</a>
+    </div>
+    <div class="card">
+      <div class="emoji">🩹</div>
+      <h3>First Aid</h3>
+      <p>First aid and basic healthcare essentials.</p>
+      <a class="btn green" href="https://wa.me/918328020387?text=I%20have%20a%20first%20aid%20product%20enquiry." target="_blank">Enquire Now →</a>
+    </div>
+    <div class="card">
+      <div class="emoji">👶</div>
+      <h3>Baby Care</h3>
+      <p>Baby care and everyday personal care products.</p>
+      <a class="btn green" href="https://wa.me/918328020387?text=I%20have%20a%20baby%20care%20product%20enquiry." target="_blank">Enquire Now →</a>
+    </div>
+    <div class="card">
+      <div class="emoji">🧴</div>
+      <h3>Personal Care</h3>
+      <p>Personal hygiene and daily care essentials.</p>
+      <a class="btn green" href="https://wa.me/918328020387?text=I%20have%20a%20personal%20care%20enquiry." target="_blank">Enquire Now →</a>
+    </div>
+    <div class="card">
+      <div class="emoji">❤️</div>
+      <h3>Healthcare</h3>
+      <p>Health and wellness product enquiries.</p>
+      <a class="btn green" href="https://wa.me/918328020387?text=I%20have%20a%20healthcare%20product%20enquiry." target="_blank">Enquire Now →</a>
+    </div>
+    <div class="card">
+      <div class="emoji">📞</div>
+      <h3>Customer Support</h3>
+      <p>Contact us for assistance and product availability.</p>
+      <a class="btn green" href="https://wa.me/918328020387?text=Hello%2C%20I%20need%20assistance." target="_blank">Contact Us →</a>
+    </div>
+  </div>
+</section>
 
-        <nav>
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </header>
+<section>
+  <div class="announcement">
+    <span class="pill" style="background:#f7e7ae;color:#855500">CAREER OPPORTUNITY</span>
+    <h2>WE ARE HIRING!</h2>
+    <h3>Pharmacy Assistants</h3>
+    <p>Join our team at Sharada Medical Stores, Choutuppal.</p>
+    <p>Interested candidates can contact us for details.</p>
+    <div class="buttons" style="justify-content:center">
+      <a class="btn green" href="https://wa.me/918328020387?text=Hello%2C%20I%20am%20interested%20in%20the%20Pharmacy%20Assistant%20job." target="_blank">Apply via WhatsApp</a>
+      <a class="btn green" href="tel:8328020387">Call Now</a>
+    </div>
+  </div>
+</section>
 
-      <main>
-        <div className="hero" id="home">
-          <h1>Welcome to<br/>SHARADA MEDICAL STORES</h1>
-          <p>
-            మీ ఆరోగ్యమే మా ప్రాధాన్యత.
-            Quality healthcare products and friendly customer service
-            at Choutuppal.
-          </p>
+<section id="consultant" style="background:#f0f6fc">
+  <div class="doctor">
+    <div class="icon">🩺</div>
+    <span class="pill">VISITING CONSULTANT</span>
+    <h2>Dr. Sudarshan Reddy</h2>
+    <div class="qualification">BAMS</div>
+    <div class="days">Every Tuesday & Thursday</div>
+    <p>Visiting Consultant at Sharada Medical Stores.</p>
+    <div class="buttons" style="justify-content:center">
+      <a class="btn green" href="https://wa.me/918328020387?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20the%20visiting%20consultant." target="_blank">Consultation Enquiry</a>
+    </div>
+  </div>
+</section>
 
-          <a className="btn white" href={"tel:" + PHONE}>
-            📞 Call Now
-          </a>
+<section class="contact" id="contact">
+  <div class="section-head">
+    <h2>Get in Touch</h2>
+    <p>We would be happy to assist you.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-box">
+      <h3>📍 Visit Our Store</h3>
+      <p><strong>SHARADA MEDICAL STORES</strong></p>
+      <p>Choutuppal, Telangana, India</p>
+      <p>Phone: <a href="tel:8328020387">8328020387</a></p>
+      <div class="buttons">
+        <a class="btn white" href="https://www.google.com/maps/search/?api=1&query=Sharada+Medical+Stores+Choutuppal+Telangana" target="_blank">📍 Open Google Maps</a>
+      </div>
+    </div>
+    <div class="contact-box">
+      <h3>📲 Contact Us</h3>
+      <p>For medicines, product availability and all other enquiries.</p>
+      <div class="buttons">
+        <a class="btn white" href="https://wa.me/918328020387?text=Hello%20Sharada%20Medical%20Stores." target="_blank">WhatsApp Us</a>
+        <a class="btn outline" href="tel:8328020387">Call 8328020387</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <a className="btn whatsapp" href={whatsappUrl}
-             target="_blank" rel="noreferrer">
-            WhatsApp Enquiry
-          </a>
-        </div>
+<footer>
+  <p>© 2026 SHARADA MEDICAL STORES. All Rights Reserved.</p>
+  <p>Choutuppal, Telangana, India</p>
+  <p>Care • Health • Trust</p>
+</footer>
 
-        <section id="about" className="about">
-          <h2 className="heading">About Our Store</h2>
-          <p className="sub">
-            మీ నమ్మకమైన ఆరోగ్య సేవల కేంద్రం
-          </p>
-          <div className="card">
-            <h3>SHARADA MEDICAL STORES</h3>
-            <p>
-              Located in Choutuppal, Telangana.
-              We aim to provide quality medicines and
-              healthcare products with customer care.
-            </p>
-            <p>మా సేవలను ఉపయోగించుకున్నందుకు ధన్యవాదాలు.</p>
-          </div>
-        </section>
-
-        <section id="services">
-          <h2 className="heading">Our Services</h2>
-          <p className="sub">మా దగ్గర లభించే ఉత్పత్తుల విభాగాలు</p>
-
-          <div className="cards">
-            {services.map((service) => (
-              <div className="card" key={service[1]}>
-                <div className="emoji">{service[0]}</div>
-                <h3>{service[1]}</h3>
-                <p>{service[2]}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="about" id="hours">
-          <h2 className="heading">Store Timings</h2>
-          <div className="card">
-            <h3>Working Hours</h3>
-            <p>For today's opening and closing time, please call us.</p>
-            <a className="btn call" href={"tel:" + PHONE}>
-              Confirm Timings
-            </a>
-          </div>
-        </section>
-
-        <section id="contact" className="contact">
-          <h2 className="heading">Contact Us</h2>
-          <p>We are happy to assist you.</p>
-
-          <div className="info">
-            <h3>📍 Our Address</h3>
-            <p>Sharada Medical Stores, Choutuppal, Telangana</p>
-            <a href={mapUrl} target="_blank" rel="noreferrer"
-               className="btn call">
-              Open Google Maps
-            </a>
-          </div>
-
-          <div className="info">
-            <h3>📞 Mobile Number</h3>
-            <p>{PHONE}</p>
-            <a href={"tel:" + PHONE} className="btn call">
-              Call Now
-            </a>
-          </div>
-
-          <div className="info">
-            <h3>💬 Medicine Enquiry</h3>
-            <p>Ask us about medicine availability on WhatsApp.</p>
-            <a href={whatsappUrl} target="_blank"
-               rel="noreferrer" className="btn whatsapp">
-              WhatsApp Us
-            </a>
-          </div>
-        </section>
-      </main>
-
-      <footer>
-        <h3>SHARADA MEDICAL STORES</h3>
-        <p>Choutuppal, Telangana | 8328020387</p>
-        <p>Your Health, Our Priority</p>
-        <p>© {new Date().getFullYear()} Sharada Medical Stores. All rights reserved.</p>
-      </footer>
-    </>
-  );
-}
+</body>
+</html>
