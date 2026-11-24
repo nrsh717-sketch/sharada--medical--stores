@@ -1,0 +1,8 @@
+{
+  "name": "Sharada Medical Stores",
+  "description": "Sharada Medical Stores in Choutuppal, Telangana — Community pharmacy for verified prescription medicines, OTC remedies, health and wellness, first aid, personal care, and baby care.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
